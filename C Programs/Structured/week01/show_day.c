@@ -9,7 +9,9 @@
 
 enum day {Sun, Mon, Tue, Wed, Thu, Fri, Sat};
 
-void print_day(enum day d){
+typedef enum day day;
+
+void print_day(day d){
 
 	switch(d % 7){ //makes sure it is within the range
 		case Mon: printf("Monday\n"); break;
@@ -23,18 +25,17 @@ void print_day(enum day d){
 	}
 }
 
-enum day next_day(enum day d){
+enum day next_day(day d){
 
 	return (d + 1 % 7); //makes sure saturday becomes sunday
 }
 
 int main(void)
 {
-	int date;
+	int day;
 	printf("Enter Day:\t");
-	scanf("%d", &date);
-	print_day(date);
-	printf("Today: ");  print_day(date);
-	printf("Next Day: "); print_day(next_day(date));
+	scanf("%d", &day);
+	printf("Today: ");  print_day(day);
+	printf("Next Day: "); print_day(next_day(day));
 	return 0;
 }
